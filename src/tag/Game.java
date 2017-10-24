@@ -9,6 +9,7 @@ public class Game
 
     public void playGame()
     {
+        Map gameMap1 = new Map(3, 5);
         Map gameMap = new Map(3, 5);
         Player player = new Player("");
 
