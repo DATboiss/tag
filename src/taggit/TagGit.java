@@ -3,13 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag;
+package taggit;
 
 /**
  *
  * @author emilv
  */
-public class ShoppingList
+public class TagGit
 {
+
+   
+    public static void main(String[] args)
+    {
+      
+    }
     
 }

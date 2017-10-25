@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag;
+package tag.item;
+
+import tag.Item;
 
 /**
  *
  * @author adams
  */
-public class Weapon extends Item
+public class Objective extends Item
 {
     
 }

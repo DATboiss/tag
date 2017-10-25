@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag;
+package tag.item;
+
+import tag.Item;
 
 /**
  *
- * @author emilv
+ * @author adams
  */
-public class Scenario
+public class Weapon extends Item
 {
-    private String name;
-    private String desc;
+    
 }

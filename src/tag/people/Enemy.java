@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag;
+package tag.people;
+
+import tag.Creature;
 
 /**
  *
- * @author emilv
+ * @author adams
  */
-public abstract class Item
+public class Enemy extends Creature
 {
-    protected String name, description;
-    protected int price;
+    private int health;
     
 }

@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag;
+package tag.people;
 
-import java.util.Arrays;
-import java.util.List;
-import textio.SysTextIO;
-import textio.TextIO;
+import tag.Map;
+import tag.Room;
+
 
 /**
  *
