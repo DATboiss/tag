@@ -9,18 +9,18 @@ public class Game
 
     public void playGame()
     {
-        Map gameMap = new Map(3, 5);
+        
         Player player = new Player("");
 
-        gameMap.initMap(gameMap);
+        player.initCreature();
         player.initPlayer(player);
+        player.initCreature();
+       
 
-        Room curRoom = gameMap.getRoom(2, 4);
-
-        while (curRoom != gameMap.getRoom(0, 4))
+        while (player.getCurRoom() != player.getGameMap().getRoom(0, 4))
         {
-            System.out.println("You are currently in: " + curRoom);
-            curRoom = gameMap.nextRoom(curRoom);
+            System.out.println("You are currently in: " + player.getCurRoom());
+            player.nextRoom(player.getCurRoom());
         }
     }
 
