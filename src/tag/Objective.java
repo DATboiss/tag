@@ -7,11 +7,9 @@ package tag;
 
 /**
  *
- * @author emilv
+ * @author adams
  */
-public abstract class Item
+public class Objective extends Item
 {
-    protected String name, description;
-    protected int price;
     
 }

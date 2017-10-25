@@ -20,19 +20,13 @@ public class Map
     private int mapWidth;
     private int mapHeight;
     private Room[][] gameMap;
-    private Room curRoom;
 
     public Map(int mapWidth, int mapHeight)
     {
         this.mapWidth = mapWidth;
         this.mapHeight = mapHeight;
         gameMap = new Room[mapWidth][mapHeight];
-        this.curRoom = curRoom;
-    }
 
-    public Room getRoom(int x, int y)
-    {
-        return gameMap[x][y];
     }
 
     // tests method to display the map in a 2D array
@@ -89,111 +83,18 @@ public class Map
         miniMap.insert(register, 0, 4);
         miniMap.insert(goAwayNull, 1, 4);
     }
+
+    public Room getRoom(int x, int y)
+    {
+        return gameMap[x][y];
+    }
 //    
 //    This method is used to move the player around in the game, and moves the player to the selected choice.
 //    
-
-    public Room nextRoom(Room curRoom)
-    {
-        TextIO text = new TextIO(new SysTextIO());
-        String[] strings = {"North", "East", "South", "West"};
-        boolean stop = false;
-
-        if (!curRoom.isNorth())
-            strings[0] += " is not a valid option";
-        else
-            strings[0] += " '" + goNorth(curRoom).toString() + "'";
-        if (!curRoom.isEast())
-            strings[1] += " is not a valid option";
-        else
-            strings[1] += " '" + goEast(curRoom).toString() + "'";
-        if (!curRoom.isSouth())
-            strings[2] += " is not a valid option";
-        else
-            strings[2] += " '" + goSouth(curRoom).toString() + "'";
-        if (!curRoom.isWest())
-            strings[3] += " is not a valid option";
-        else
-            strings[3] += " '" + goWest(curRoom).toString() + "'";
-        List choices = Arrays.asList(strings);
-        int answer = text.select("Where do you wanna go", choices, "===================");
-        System.out.println("You choose to head " + strings[answer]);
-
-        switch (answer)
-        {
-            case 0:
-                if (curRoom.isNorth())
-                {
-                    return goNorth(curRoom);
-                } else
-                {
-                    System.out.println("Please choose another option");
-                    answer = text.select("Where do you wanna go", choices, "===================");
-                }
-                break;
-
-            case 1:
-                if (curRoom.isEast())
-                {
-                    return goEast(curRoom);
-                } else
-                {
-                    System.out.println("Please choose another option");
-                    answer = text.select("Where do you wanna go", choices, "===================");
-                }
-                break;
-
-            case 2:
-                if (curRoom.isSouth())
-                {
-                    return goSouth(curRoom);
-                } else
-                {
-                    System.out.println("Please choose another option");
-                    answer = text.select("Where do you wanna go", choices, "===================");
-                }
-                break;
-
-            case 3:
-                if (curRoom.isWest())
-                {
-                    return goWest(curRoom);
-                } else
-                {
-                    System.out.println("Please choose another option");
-                    answer = text.select("Where do you wanna go", choices, "===================");
-                }
-                break;
-            default:
-                text.put("That is not a valid command");
-        }
-
-        return curRoom;
-    }
 
     /**
      * Used to move players into the new room
      *
      * @return
      */
-    public Room goNorth(Room curRoom)
-    {
-        return getRoom(curRoom.getX(), curRoom.getY() - 1);
-    }
-
-    public Room goEast(Room curRoom)
-    {
-        return getRoom(curRoom.getX() + 1, curRoom.getY());
-    }
-
-    public Room goSouth(Room curRoom)
-    {
-        return getRoom(curRoom.getX(), curRoom.getY() + 1);
-    }
-
-    public Room goWest(Room curRoom)
-    {
-        return getRoom(curRoom.getX() - 1, curRoom.getY());
-    }
-
 }

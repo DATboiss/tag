@@ -7,11 +7,9 @@ package tag;
 
 /**
  *
- * @author emilv
+ * @author adams
  */
-public abstract class Item
+public class Consumeable extends Item
 {
-    protected String name, description;
-    protected int price;
     
 }
