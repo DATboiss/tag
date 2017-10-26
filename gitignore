@@ -1,0 +1,10 @@
+*~
+/out
+/.idea
+/.gradle
+/build
+
+/nbproject
+
+build.xml
+manifest.mf
