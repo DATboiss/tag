@@ -5,7 +5,7 @@
  */
 package tag.map;
 
-import tag.Scenario;
+import tag.map.Scenario;
 
 /**
  *

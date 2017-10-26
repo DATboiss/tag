@@ -5,7 +5,7 @@
  */
 package tag.item;
 
-import tag.Item;
+import tag.item.Item;
 
 /**
  *

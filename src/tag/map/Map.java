@@ -7,7 +7,7 @@ package tag.map;
 
 import java.util.Arrays;
 import java.util.List;
-import tag.Room;
+import tag.map.Room;
 import textio.SysTextIO;
 import textio.TextIO;
 

@@ -5,8 +5,8 @@
  */
 package tag.people;
 
-import tag.Map;
-import tag.Room;
+import tag.map.Map;
+import tag.map.Room;
 
 
 /**
@@ -17,15 +17,27 @@ public abstract class Creature
 {
     protected Room curRoom;
     protected Map gameMap;
-    
-    
-    public void initCreature()
+    protected String name;
+
+    public Creature(Map gameMap, Room curRoom)
     {
-        gameMap = new Map(3, 5);
-        gameMap.initMap(gameMap);
-        
+        this.gameMap = gameMap;
+        this.curRoom = curRoom;
     }
 
+    public String getName()
+    {
+        return name;
+    }
+
+  
+    
+    
+    
+    
+
+    public abstract void takeTurn();
+    
     protected void setCurRoom(Room curRoom)
     {
         this.curRoom = curRoom;

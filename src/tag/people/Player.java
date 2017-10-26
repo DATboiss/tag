@@ -8,9 +8,10 @@ package tag.people;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import tag.Creature;
-import tag.Item;
-import tag.Room;
+import tag.people.Creature;
+import tag.item.Item;
+import tag.map.Map;
+import tag.map.Room;
 import textio.SysTextIO;
 import textio.TextIO;
 
@@ -25,17 +26,19 @@ public class Player extends Creature
     private int money;
     ArrayList<Item> inventory = new ArrayList();
 
-    public Player(String name)
+    public Player(Map gameMap, Room curRoom)
     {
-        this.name = name;
+        super(gameMap, curRoom);
         anxiety = 0;
-        money = 100;
+        money = 100; //change later
     }
+
+
 
     // Asks the player for name
         public void initPlayer(Player player)
     {  
-        curRoom = gameMap.getRoom(2, 4);
+        
         TextIO text = new TextIO(new SysTextIO());
         text.put("Greetings kind adventurer, what is your name?");
         String name = text.get();
@@ -147,6 +150,12 @@ public class Player extends Creature
     public String toString()
     {
         return name;
+    }
+
+    @Override
+    public void takeTurn()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
 }
