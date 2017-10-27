@@ -5,11 +5,8 @@
  */
 package tag.map;
 
-import java.util.Arrays;
-import java.util.List;
-import tag.map.Room;
-import textio.SysTextIO;
-import textio.TextIO;
+import tag.item.Consumeable;
+import tag.item.Objective;
 
 /**
  *
@@ -52,7 +49,23 @@ public class Map
 
     // creates and allocates all the rooms to a coordinate in the map
     public static void initMap(Map miniMap)
-    {                                                                       //boolean north, east, south, west
+    {
+        Objective eggPlant = new Objective("Egg Plant", "Long and hard", 8);
+        Objective toast = new Objective("Toast", "Soft like a babies butt", 20);
+        Objective fishSticks = new Objective("Fish sticks", "Do you like to put them in your mouth?", 20);
+        Objective ham = new Objective("Ham", "John's very own", 12);
+        Objective cheddar = new Objective("Cheddar Cheese", "Nacho Cheese", 6);
+        Objective milk = new Objective("Lactose Glutenfree extra vegan natural soya milk", "Issa Milk bottle", 25);
+        Objective sausage = new Objective("Sausage", "Huge weiner", 35);
+        Objective tappas = new Objective("Tappas", "Ay Caramba", 45);
+        Objective booze = new Objective("Grand Marnier", "Triple Sec Orrange liqour", 75);
+        Objective intimateSoap = new Objective("Vivag", "Mommy smells a bit fishy", 40    );
+        Objective doritos = new Objective("XXL Doritos", "XXL, when you've got to compensate for something", 30);
+        Consumeable snickers = new Consumeable("Snickers bar", "You're not your when you're hungry", 6);
+        Consumeable recyclingBottle = new Consumeable("Recycling bottle", "You're not your when you're hungry", 6);
+        
+        
+        //boolean north, east, south, west   
         Room sp = new Room("Start", "Starting Point", 1, 2, 4, true, false, false, false);
         Room freshProd = new Room("Fresh produce", "desc", 2, 2, 3, true, false, false, true);
         Room bread = new Room("Bread", "desc", 3, 1, 3, true, true, false, false);
@@ -64,10 +77,24 @@ public class Map
         Room deli = new Room("Deli", "desc", 9, 1, 1, true, true, false, true);
         Room alcohol = new Room("Alchohol", "desc", 10, 0, 1, true, true, true, false);
         Room bottle = new Room("Bottle recycler", "desc", 11, 0, 0, false, false, true, false);
-        Room cleaning = new Room("Cleaning appliances", "desc", 12, 0, 2, true, false, true, false);
+        Room personalHygeine = new Room("Personal Hygeine", "desc", 12, 0, 2, true, false, true, false);
         Room candy = new Room("Candy", "desc", 13, 0, 3, true, false, true, false);
         Room register = new Room("Register", "desc", 14, 0, 4, true, false, false, false);
         Room goAwayNull = new Room("    ", "desc", 14, 1, 4, false, false, false, false);
+        freshProd.addItemToRoom(eggPlant);
+        freshProd.addItemToRoom(snickers);
+        bread.addItemToRoom(toast);
+        frozen.addItemToRoom(fishSticks);
+        coldCuts.addItemToRoom(ham);
+        cheese.addItemToRoom(cheddar);
+        dairy.addItemToRoom(milk);
+        butcher.addItemToRoom(sausage);
+        deli.addItemToRoom(tappas);
+        alcohol.addItemToRoom(booze);
+        personalHygeine.addItemToRoom(intimateSoap);
+        candy.addItemToRoom(doritos);
+        
+        
         miniMap.insert(sp, 2, 4);
         miniMap.insert(freshProd, 2, 3);
         miniMap.insert(bread, 1, 3);
@@ -79,7 +106,7 @@ public class Map
         miniMap.insert(deli, 1, 1);
         miniMap.insert(alcohol, 0, 1);
         miniMap.insert(bottle, 0, 0);
-        miniMap.insert(cleaning, 0, 2);
+        miniMap.insert(personalHygeine, 0, 2);
         miniMap.insert(candy, 0, 3);
         miniMap.insert(register, 0, 4);
         miniMap.insert(goAwayNull, 1, 4);

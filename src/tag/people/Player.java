@@ -21,6 +21,7 @@ import textio.TextIO;
  */
 public class Player extends Creature
 {
+
     private String name;
     private int anxiety;
     private int money;
@@ -33,43 +34,102 @@ public class Player extends Creature
         money = 100; //change later
     }
 
+    public void addItemToInventory(int i)
+    {
+        inventory.add(curRoom.getRoomItem(i));
+        curRoom.removeRoomItem(i);
 
+    }
+
+    public void pickUpItem()
+    {
+
+        while (curRoom.getRoomItems().size() > 0)
+        {
+            {
+                TextIO text = new TextIO(new SysTextIO());
+                String[] strings = new String[curRoom.getRoomItems().size() + 1];
+
+                for (int i = 0; i < curRoom.getRoomItems().size(); i++)
+                {
+                    strings[i] = "pick up " + curRoom.getRoomItem(i).getName();
+                }
+                strings[curRoom.getRoomItems().size()] = "To not pickup any items";
+                List choices = Arrays.asList(strings);
+
+                int answer = text.select("What do you want to pick up?", choices, "Select a valid option!");
+                if (answer != curRoom.getRoomItems().size())
+                {
+                    System.out.println("You chose to pick up " + curRoom.getRoomItem(answer).getName() + "\n");
+                    addItemToInventory(answer);
+                } else
+                {
+                    System.out.println("You chose to not pick up any items.");
+                    break;
+                }
+            }
+        }
+
+    }
+
+    public void printInventory()
+    {
+        for (Item item : inventory)
+        {
+            System.out.println(item.getName());
+        }
+    }
 
     // Asks the player for name
-        public void initPlayer(Player player)
-    {  
-        
+    public void initPlayer(Player player)
+    {
+
         TextIO text = new TextIO(new SysTextIO());
         text.put("Greetings kind adventurer, what is your name?");
         String name = text.get();
         player.setName(name);
         System.out.println("Greetings, " + player);
     }
-         public void nextRoom(Room curRoom)
+
+    public void nextRoom(Room curRoom)
     {
         TextIO text = new TextIO(new SysTextIO());
-        String[] strings = {"North", "East", "South", "West"};
-        
+        String[] strings =
+        {
+            "North", "East", "South", "West"
+        };
 
         if (!curRoom.isNorth())
+        {
             strings[0] += " is not a valid option";
-        else
+        } else
+        {
             strings[0] += " '" + goNorth(curRoom).toString() + "'";
+        }
         if (!curRoom.isEast())
+        {
             strings[1] += " is not a valid option";
-        else
+        } else
+        {
             strings[1] += " '" + goEast(curRoom).toString() + "'";
+        }
         if (!curRoom.isSouth())
+        {
             strings[2] += " is not a valid option";
-        else
+        } else
+        {
             strings[2] += " '" + goSouth(curRoom).toString() + "'";
+        }
         if (!curRoom.isWest())
+        {
             strings[3] += " is not a valid option";
-        else
+        } else
+        {
             strings[3] += " '" + goWest(curRoom).toString() + "'";
+        }
         List choices = Arrays.asList(strings);
         int answer = text.select("Where do you wanna go", choices, "===================");
-        System.out.println("You choose to head " + strings[answer]);
+        System.out.println("\n" + "You choose to head " + strings[answer]);
 
         switch (answer)
         {
@@ -77,6 +137,7 @@ public class Player extends Creature
                 if (curRoom.isNorth())
                 {
                     setCurRoom(goNorth(curRoom));
+
                 } else
                 {
                     System.out.println("Please choose another option");
@@ -88,6 +149,7 @@ public class Player extends Creature
                 if (curRoom.isEast())
                 {
                     setCurRoom(goEast(curRoom));
+
                 } else
                 {
                     System.out.println("Please choose another option");
@@ -119,13 +181,14 @@ public class Player extends Creature
             default:
                 text.put("That is not a valid command");
         }
-        
-        
+
     }
+
     public String getName()
     {
         return name;
     }
+
     // getAnxiety represents the players health. It starts as 0 and lose if you reach certain max
     public int getAnxiety()
     {
@@ -146,6 +209,7 @@ public class Player extends Creature
     {
         this.name = name;
     }
+
     @Override
     public String toString()
     {
@@ -157,5 +221,5 @@ public class Player extends Creature
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-   
+
 }

@@ -13,5 +13,10 @@ import tag.item.Item;
  */
 public class Consumeable extends Item
 {
+
+    public Consumeable(String name, String description, int price)
+    {
+        super(name, description, price);
+    }
     
 }
