@@ -1,5 +1,7 @@
 package tag;
 
+import highscore.HighscoreManager;
+import java.io.IOException;
 import tag.map.Map;
 import tag.people.Enemy;
 import tag.people.Player;
@@ -11,18 +13,22 @@ import tag.people.Player;
 public class Game
 {
 
-    public void playGame()
+    public void playGame() throws IOException
     {
-        
+
         Map gameMap = new Map(3, 5);
         gameMap.initMap(gameMap);
         Player player = new Player(gameMap, gameMap.getRoom(2, 4));
         Enemy enemy = new Enemy(gameMap, gameMap.getRoom(0, 4), "Tyrone");
         player.initPlayer(player);
+        HighscoreManager hm = new HighscoreManager();
+        hm.addScore("Bart", 240);
+        hm.addScore("Marge", 300);
+        hm.addScore("Maggie", 220);
+        hm.addScore("Homer", 100);
+        hm.addScore("Lisa", 270);
 
-        
-        
-       
+        System.out.print(hm.getHighscoreString());
 
         while (player.getCurRoom() != enemy.getCurRoom())
         {
@@ -37,9 +43,9 @@ public class Game
 
         }
         if (player.getCurRoom().equals(enemy.getCurRoom()))
-            {
-                System.out.println("Oh no! you got caught by Tyrone");
-            }
+        {
+            System.out.println("Oh no! you got caught by Tyrone");
+        }
     }
 
 }

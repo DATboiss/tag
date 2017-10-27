@@ -33,7 +33,7 @@ public class HighscoreManager
         scores = new ArrayList<Score>();
     }
 
-    public ArrayList<Score> getScores()
+    public ArrayList<Score> getScores() throws IOException
     {
         loadScoreFile();
         sort();
@@ -46,7 +46,7 @@ public class HighscoreManager
         Collections.sort(scores, comparator);
     }
 
-    public void addScore(String name, int score)
+    public void addScore(String name, int score) throws IOException
     {
         loadScoreFile();
         scores.add(new Score(name, score));
@@ -103,9 +103,9 @@ public class HighscoreManager
         }
 }
     
-    public String getHighscoreString() {
+    public String getHighscoreString() throws IOException {
         String highscoreString = "";
-	 Static int max = 10;
+	 int max = 10;
 
 
         ArrayList<Score> scores;
