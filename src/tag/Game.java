@@ -27,6 +27,7 @@ public class Game
         hm.addScore("Maggie", 220);
         hm.addScore("Homer", 100);
         hm.addScore("Lisa", 270);
+        hm.addScore("Emil", 0);
 
         System.out.print(hm.getHighscoreString());
 
