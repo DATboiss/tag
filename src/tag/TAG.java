@@ -1,5 +1,7 @@
 package tag;
 
+import java.io.IOException;
+
 /**
  *
  * @author emilv
@@ -7,7 +9,7 @@ package tag;
 public class TAG
 {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         Game game = new Game();
         game.playGame();

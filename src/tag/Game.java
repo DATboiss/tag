@@ -22,16 +22,10 @@ public class Game
         Enemy enemy = new Enemy(gameMap, gameMap.getRoom(0, 4), "Tyrone");
         player.initPlayer(player);
         HighscoreManager hm = new HighscoreManager();
-        hm.addScore("Bart", 240);
-        hm.addScore("Marge", 300);
-        hm.addScore("Maggie", 220);
-        hm.addScore("Homer", 100);
-        hm.addScore("Lisa", 270);
-        hm.addScore("Emil", 0);
 
         System.out.print(hm.getHighscoreString());
 
-        while (player.getCurRoom() != enemy.getCurRoom())
+        while (player.getCurRoom() != enemy.getCurRoom() && player.getCurRoom() != gameMap.getRoom(0, 4))
         {
             System.out.println("Tyrone is at " + enemy.getCurRoom());
             System.out.println("You are currently in: " + player.getCurRoom());
@@ -46,7 +40,14 @@ public class Game
         if (player.getCurRoom().equals(enemy.getCurRoom()))
         {
             System.out.println("Oh no! you got caught by Tyrone");
+        } else
+        {
+            int score = player.calcScore();
+            hm.addScore(player.getName(), score);
+            System.out.println("You won the game, your score is: " + score);
+
         }
+            System.out.println(hm.getHighscoreString());
     }
 
 }

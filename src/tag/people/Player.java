@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import tag.people.Creature;
 import tag.item.Item;
+import tag.item.Objective;
 import tag.map.Map;
 import tag.map.Room;
 import textio.SysTextIO;
@@ -25,6 +26,7 @@ public class Player extends Creature
     private String name;
     private int anxiety;
     private int money;
+    private int pointSum;
     ArrayList<Item> inventory = new ArrayList();
 
     public Player(Map gameMap, Room curRoom)
@@ -32,6 +34,37 @@ public class Player extends Creature
         super(gameMap, curRoom);
         anxiety = 0;
         money = 100; //change later
+    }
+
+    public int getPointSum()
+    {
+        return pointSum;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    // getAnxiety represents the players health. It starts as 0 and lose if you reach certain max
+    public int getAnxiety()
+    {
+        return anxiety;
+    }
+
+    public int getMoney()
+    {
+        return money;
+    }
+
+    public ArrayList<Item> getInventory()
+    {
+        return inventory;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
     }
 
     public void addItemToInventory(int i)
@@ -78,6 +111,20 @@ public class Player extends Creature
         {
             System.out.println(item.getName());
         }
+    }
+
+    public int calcScore()
+    {
+        int sum = 0;
+        for (Item i : inventory)
+        {
+            if (i instanceof Objective)
+            {
+                sum += ((Objective) i).getPoints();
+            }
+        }
+
+        return sum;
     }
 
     // Asks the player for name
@@ -184,39 +231,12 @@ public class Player extends Creature
 
     }
 
-    public String getName()
-    {
-        return name;
-    }
-
-    // getAnxiety represents the players health. It starts as 0 and lose if you reach certain max
-    public int getAnxiety()
-    {
-        return anxiety;
-    }
-
-    public int getMoney()
-    {
-        return money;
-    }
-
-    public ArrayList<Item> getInventory()
-    {
-        return inventory;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
     @Override
     public String toString()
     {
         return name;
     }
 
-    
     @Override
     public void takeTurn() //
     {

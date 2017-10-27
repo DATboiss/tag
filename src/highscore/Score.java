@@ -16,6 +16,12 @@ public class Score implements Serializable
  private int score;
  private String name;
  
+ public Score(String name, int score)
+ {
+     this.name = name;
+     this.score = score;
+ }
+ 
  public int getScore(){
      return score;
  }
@@ -23,10 +29,5 @@ public class Score implements Serializable
      return name;
  }
  
- public Score(String name, int score)
- {
-     this.name = name;
-     this.score = score;
- }
- 
+
 }

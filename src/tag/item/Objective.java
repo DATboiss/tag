@@ -13,10 +13,17 @@ import tag.item.Item;
  */
 public class Objective extends Item
 {
+    private int points;
 
     public Objective(String name, String description, int price)
     {
         super(name, description, price);
+        points = price;
+    }
+
+    public int getPoints()
+    {
+        return points;
     }
     
     
