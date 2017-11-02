@@ -22,10 +22,7 @@ public class Consumable extends Item
         this.value = value;
     }
     
-    public int getValue()
-    {
-        return value;
-    }
+    
     
     
 }
