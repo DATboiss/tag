@@ -24,12 +24,19 @@ public class Game
         HighscoreManager hm = new HighscoreManager();
 
         System.out.print(hm.getHighscoreString());
-
-        while (player.getCurRoom() != enemy.getCurRoom() && player.getCurRoom() != gameMap.getRoom(0, 4))
+        while (player.getAnxiety() < 100 && player.getCurRoom() != gameMap.getRoom(0, 4))
         {
-            System.out.println("Tyrone is at " + enemy.getCurRoom());
-            System.out.println("You are currently in: " + player.getCurRoom());
+            
+            
+            if (player.getCurRoom().equals(enemy.getCurRoom()))
+            {
+                enemy.interaction(player);
+            }
+            
+            System.out.println("             ");
             player.getCurRoom().printRoomItems();
+            System.out.println("Security guard Tyrone is currently in: " + enemy.getCurRoom());
+            System.out.println("You are currently in: " + player.getCurRoom());
             System.out.println("====================================");
             player.nextRoom(player.getCurRoom());
             player.pickUpItem();
@@ -47,7 +54,7 @@ public class Game
             System.out.println("You won the game, your score is: " + score);
 
         }
-            System.out.println(hm.getHighscoreString());
+        System.out.println(hm.getHighscoreString());
     }
 
 }

@@ -25,6 +25,12 @@ public abstract class Item
     {
         return name;
     }
+
+    @Override
+    public String toString()
+    {
+        return "You picked up:\n" + name + "\n" + description + "\n" + price + ",-";
+    }
     
     
 }

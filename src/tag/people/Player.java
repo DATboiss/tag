@@ -93,7 +93,7 @@ public class Player extends Creature
                 int answer = text.select("What do you want to pick up?", choices, "Select a valid option!");
                 if (answer != curRoom.getRoomItems().size())
                 {
-                    System.out.println("You chose to pick up " + curRoom.getRoomItem(answer).getName() + "\n");
+                    System.out.println(curRoom.getRoomItem(answer) + "\n");
                     addItemToInventory(answer);
                 } else
                 {
@@ -101,16 +101,21 @@ public class Player extends Creature
                     break;
                 }
             }
+           
         }
 
     }
 
     public void printInventory()
     {
+        System.out.println("  Item list  ");
+        System.out.println("=============");
         for (Item item : inventory)
         {
             System.out.println(item.getName());
         }
+        System.out.println("=============");
+        System.out.println(" ");
     }
 
     public int calcScore()
@@ -237,6 +242,19 @@ public class Player extends Creature
         return name;
     }
 
+    public void alterAnxiety(int i)
+    {
+        anxiety += i;
+    }
+    
+    public void alterMoney(int i)
+    {
+        anxiety += i;
+    }
+     
+    
+    
+    
     @Override
     public void takeTurn() //
     {
