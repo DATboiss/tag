@@ -67,11 +67,19 @@ public class Player extends Creature
         this.name = name;
     }
 
-    public void addItemToInventory(int i)
-    {
+   public void addItemToInventory(int i) {
+        
+        if (curRoom.getRoomItem(i).getName().equalsIgnoreCase("Snickers"))
+        {
+            Consumable cons = (Consumable)curRoom.getRoomItem(i);
+            System.out.println("You couldn't help yourself. You ate the snickers immediately and your anxiety dropped by " + cons.getValue());   
+            anxiety -= cons.getValue();
+        }
+        else
+        {
         inventory.add(curRoom.getRoomItem(i));
+        }
         curRoom.removeRoomItem(i);
-
     }
 
     public void pickUpItem()
@@ -105,6 +113,7 @@ public class Player extends Creature
         }
 
     }
+    
 
     public void printInventory()
     {

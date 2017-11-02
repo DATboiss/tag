@@ -61,8 +61,8 @@ public class Map
         Objective booze = new Objective("Grand Marnier", "Triple Sec Orrange liqour", 75);
         Objective intimateSoap = new Objective("Vivag", "Mommy smells a bit fishy", 40    );
         Objective doritos = new Objective("XXL Doritos", "XXL, when you've got to compensate for something", 30);
-        Consumable snickers = new Consumable("Snickers bar", "You're not your when you're hungry", 6);
-        Consumable recyclingBottle = new Consumable("Recycling bottle", "You're not your when you're hungry", 6);
+        Consumable snickers = new Consumable("Snickers bar", "You're not your when you're hungry", 6, -10);
+        Consumable recyclingBottle = new Consumable("Recycling bottle", "You're not your when you're hungry", 6, 0);
         
         
         //boolean north, east, south, west   

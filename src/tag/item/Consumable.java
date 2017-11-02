@@ -14,15 +14,16 @@ import tag.item.Item;
 public class Consumable extends Item
 {
     private int value;
-
-
+    
+    
     public Consumable(String name, String description, int price, int value)
     {
         super(name, description, price);
         this.value = value;
     }
-    
-    
-    
-    
+
+    public int getValue()
+    {
+        return value;
+    }
 }
