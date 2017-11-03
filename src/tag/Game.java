@@ -1,5 +1,6 @@
 package tag;
 
+import bottleRecycler.Machine;
 import highscore.HighscoreManager;
 import java.io.IOException;
 import tag.map.Map;
@@ -20,7 +21,9 @@ public class Game
         gameMap.initMap(gameMap);
         Player player = new Player(gameMap, gameMap.getRoom(2, 4));
         Enemy enemy = new Enemy(gameMap, gameMap.getRoom(0, 4), "Tyrone");
+        enemy.initEnemy(3);
         player.initPlayer(player);
+        Machine recycle = new Machine();
         HighscoreManager hm = new HighscoreManager();
 
         System.out.print(hm.getHighscoreString());
@@ -31,15 +34,19 @@ public class Game
             {
                 enemy.interaction(player);
             }
+            if (player.getCurRoom().equals(gameMap.getRoom(0, 0)))
+            {
+                recycle.recycleBottles(player);
+            }
 
             System.out.println("             ");
             player.getCurRoom().printRoomItems();
             System.out.println("Security guard Tyrone is currently in: " + enemy.getCurRoom());
             System.out.println("You are currently in: " + player.getCurRoom());
             System.out.println("====================================");
-            player.nextRoom(player.getCurRoom());
             player.pickUpItem();
             player.printInventory();
+            player.nextRoom(player.getCurRoom());
             enemy.takeTurn();
 
         }
