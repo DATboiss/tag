@@ -207,7 +207,6 @@ public class Enemy extends Creature
         for (Item i: inventory)
         {
             curRoom.addItemToRoom(i);
-            inventory.remove(i);
             count++;
         }
         System.out.println("Tyrone dropped " + count + " bottles");

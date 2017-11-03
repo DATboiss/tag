@@ -6,6 +6,7 @@
 package bottleRecycler;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import tag.item.Consumable;
 import tag.item.Item;
@@ -43,15 +44,22 @@ public class Machine
         {
             boolean hasBottle = false;
            
-                for (Item c : player.getInventory())
+                for (Iterator<Item> iterator = player.getInventory().iterator(); iterator.hasNext();)
                 {
-                    if (c instanceof Consumable && c.getName().equals("Recycling bottle"))
-                    {
-                        Consumable cons = (Consumable) c;
-                        player.alterMoney(cons.getValue());
+//                    if (c instanceof Consumable && c.getName().equals("Recycling bottle"))
+////                    {
+                        Item cons = iterator.next();
+                        if("Recycling bottle".equals(cons.getName()))
+                        {
+//                        player.alterMoney(cons.);
+//                        System.out.println("You recycle the bottle and gain " + cons.getValue() + " kr.");
+                        iterator.remove();
                         hasBottle = true;
+                        }
 
-                    }
+
+//                    }
+                    
                 }
                     
             if (!hasBottle)
