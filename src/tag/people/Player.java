@@ -8,6 +8,7 @@ package tag.people;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import tag.item.Consumable;
 import tag.people.Creature;
 import tag.item.Item;
 import tag.item.Objective;
@@ -23,11 +24,11 @@ import textio.TextIO;
 public class Player extends Creature
 {
 
-    private String name;
+    
     private int anxiety;
     private int money;
     private int pointSum;
-    ArrayList<Item> inventory = new ArrayList();
+    
 
     public Player(Map gameMap, Room curRoom)
     {
@@ -69,7 +70,7 @@ public class Player extends Creature
 
    public void addItemToInventory(int i) {
         
-        if (curRoom.getRoomItem(i).getName().equalsIgnoreCase("Snickers"))
+        if (curRoom.getRoomItem(i).getName().equalsIgnoreCase("Snickers bar"))
         {
             Consumable cons = (Consumable)curRoom.getRoomItem(i);
             System.out.println("You couldn't help yourself. You ate the snickers immediately and your anxiety dropped by " + cons.getValue());   
@@ -137,6 +138,7 @@ public class Player extends Creature
                 sum += ((Objective) i).getPoints();
             }
         }
+        sum *= 100-anxiety;
 
         return sum;
     }

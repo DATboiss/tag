@@ -5,6 +5,8 @@
  */
 package tag.people;
 
+import java.util.ArrayList;
+import tag.item.Item;
 import tag.map.Map;
 import tag.map.Room;
 
@@ -18,6 +20,7 @@ public abstract class Creature
     protected Room curRoom;
     protected Map gameMap;
     protected String name;
+    protected ArrayList<Item> inventory = new ArrayList();
 
     public Creature(Map gameMap, Room curRoom)
     {

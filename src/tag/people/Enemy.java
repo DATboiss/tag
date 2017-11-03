@@ -5,9 +5,12 @@
  */
 package tag.people;
 
+import static java.awt.SystemColor.text;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import tag.item.Consumable;
+import tag.item.Item;
 import tag.map.Map;
 import tag.map.Room;
 import textio.SysTextIO;
@@ -19,8 +22,6 @@ import textio.TextIO;
  */
 public class Enemy extends Creature
 {
-
-    private int health;
     private Random rnd = new Random();
     private boolean hasMet = false;
 
@@ -29,6 +30,15 @@ public class Enemy extends Creature
         super(gameMap, curRoom);
         this.curRoom = gameMap.getRoom(0, 4);
         this.name = name;
+    }
+    
+    public void initEnemy(int e)
+    {
+        Consumable recyclingBottle = new Consumable("Recycling bottle", "You can get money for recycling this", 10, 0);
+        for (int i = 0; i < e; i++)
+        {
+           inventory.add(recyclingBottle);
+        }
     }
 
     @Override
@@ -133,6 +143,7 @@ public class Enemy extends Creature
                         player.alterAnxiety(25);
                     }
                     hasMet = true;
+                    dropLoot();
                     break;
 
                 }
@@ -149,6 +160,7 @@ public class Enemy extends Creature
                     text.put("Disgusting scum! *Pukes while running away from you");
                     player.alterAnxiety(25);
                     hasMet = true;
+                    dropLoot();
                     break;
                 }
                 case 3:
@@ -171,15 +183,33 @@ public class Enemy extends Creature
                     player.alterMoney(-7);
                     player.alterAnxiety(-50);
                     hasMet = true;
+                    dropLoot();
                     break;
                 }
 
                 default:
                     System.out.println("Why are you trying to break the game? Hackerman!!!");
+                    dropLoot();
+                    dropLoot();
+                    dropLoot();
+                    dropLoot();
+                    
+                    
 
             }
         }
 
     }
 
+    public void dropLoot()
+    {
+        int count = 0;
+        for (Item i: inventory)
+        {
+            curRoom.addItemToRoom(i);
+            inventory.remove(i);
+            count++;
+        }
+        System.out.println("Tyrone dropped " + count + " bottles");
+    }
 }
