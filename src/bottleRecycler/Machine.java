@@ -41,37 +41,33 @@ public class Machine
         {
 
             case 0:
-        {
-            boolean hasBottle = false;
-           
+            {
+                boolean hasBottle = false;
+
                 for (Iterator<Item> iterator = player.getInventory().iterator(); iterator.hasNext();)
                 {
-//                    if (c instanceof Consumable && c.getName().equals("Recycling bottle"))
-////                    {
-                        Item cons = iterator.next();
-                        if("Recycling bottle".equals(cons.getName()))
-                        {
+
+                    Item cons = iterator.next();
+                    if ("Recycling bottle".equals(cons.getName()))
+                    {
                         Consumable money = (Consumable) cons;
                         player.alterMoney(money.getValue());
                         System.out.println("You recycle the bottle and gain " + money.getValue() + " kr.");
                         iterator.remove();
                         hasBottle = true;
-                        }
+                    }
 
-
-//                    }
-                    
                 }
-                    
-            if (!hasBottle)
-            {
-                System.out.println("You try to insert " + player.getInventory().get(answer).getName() + " into the machine, "
-                        + "as you do not have any bottles in your inventory. "
-                        + "The people around you cringe and you feel very, very stupid.");
-                player.alterAnxiety(10);
+
+                if (!hasBottle)
+                {
+                    System.out.println("You try to insert " + player.getInventory().get(answer).getName() + " into the machine, "
+                            + "as you do not have any bottles in your inventory. "
+                            + "The people around you cringe and you feel very, very stupid.");
+                    player.alterAnxiety(10);
+                }
+                break;
             }
-                    break;
-        }
             case 1:
                 System.out.println("You do nothing but stare at the recycling machine, the people around you stare at you "
                         + "and shake their heads");

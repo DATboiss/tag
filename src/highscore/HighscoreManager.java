@@ -83,43 +83,54 @@ public class HighscoreManager
             }
         }
     }
-    public void updateScoreFile() {
-        try {
+
+    public void updateScoreFile()
+    {
+        try
+        {
             outputStream = new ObjectOutputStream(new FileOutputStream(HIGHSCORE_FILE));
             outputStream.writeObject(scores);
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e)
+        {
             System.out.println("[Update] FNF Error: " + e.getMessage() + ",the program will try and make a new file");
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             System.out.println("[Update] IO Error: " + e.getMessage());
-        } finally {
-            try {
-                if (outputStream != null) {
+        } finally
+        {
+            try
+            {
+                if (outputStream != null)
+                {
                     outputStream.flush();
                     outputStream.close();
                 }
-            } catch (IOException e) {
+            } catch (IOException e)
+            {
                 System.out.println("[Update] Error: " + e.getMessage());
             }
         }
-}
-    
-    public String getHighscoreString() throws IOException {
-        String highscoreString = "";
-	 int max = 10;
+    }
 
+    public String getHighscoreString() throws IOException
+    {
+        String highscoreString = "";
+        int max = 10;
 
         ArrayList<Score> scores;
         scores = getScores();
 
         int i = 0;
         int x = scores.size();
-        if (x > max) {
+        if (x > max)
+        {
             x = max;
         }
-        while (i < x) {
+        while (i < x)
+        {
             highscoreString += (i + 1) + ".\t" + scores.get(i).getName() + "\t\t" + scores.get(i).getScore() + "\n";
             i++;
         }
         return highscoreString;
-}
+    }
 }

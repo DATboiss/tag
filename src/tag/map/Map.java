@@ -61,12 +61,10 @@ public class Map
         Objective sausage = new Objective("Sausage", "Huge weiner", 35);
         Objective tappas = new Objective("Tappas", "Ay Caramba", 45);
         Objective booze = new Objective("Grand Marnier", "Triple Sec Orrange liqour", 75);
-        Objective intimateSoap = new Objective("Vivag", "Mommy smells a bit fishy", 40    );
+        Objective intimateSoap = new Objective("Vivag", "Mommy smells a bit fishy", 40);
         Objective doritos = new Objective("XXL Doritos", "XXL, when you've got to compensate for something", 30);
-        Consumable snickers = new Consumable("Snickers bar", "You're not your when you're hungry", 6, -10);
-        
-        
-        
+        Consumable snickers = new Consumable("Snickers bar", "You're not your when you're hungry", 6, 0);
+
         //boolean north, east, south, west   
         Room sp = new Room("Start", "", 1, 2, 4, true, false, false, false);
         Room freshProd = new Room("Fresh produce", "", 2, 2, 3, true, false, false, true);
@@ -95,8 +93,7 @@ public class Map
         alcohol.addItemToRoom(booze);
         personalHygeine.addItemToRoom(intimateSoap);
         candy.addItemToRoom(doritos);
-        
-        
+
         miniMap.insert(sp, 2, 4);
         miniMap.insert(freshProd, 2, 3);
         miniMap.insert(bread, 1, 3);
@@ -115,10 +112,9 @@ public class Map
         sp.setDesc("Greetings nerd! Your mom has asked you to go grocery shopping for her. "
                 + "She’s given you a shopping list with the following items: "
                 + shoppinglist.shoppingListToString()
-                + "She’s given you enough money to buy it all. "
-                + "However, there will be temptations that you can pick up, but then won’t have enough money for everything on the grocery list. "
+                + "She’s given 250 kr. to buy it all. "
                 + "Since you’re socially anxious, try to avoid all forms of social contact!");
-        
+
         shoppinglist.printShoppingList();
         freshProd.setDesc("You enter the supermarket, and the cold and humid surroundings of the fresh produce section makes you shiver. You look at mom’s shopping list, and notice she needs an eggplant.");
         bread.setDesc("The bread section is a small double sided aisle, with little room. You look for the soft, most baby-butt like toast you can find.");
@@ -133,7 +129,7 @@ public class Map
         personalHygeine.setDesc("Mom’s been having too much fun with the neighbours, and her private parts has gone sour. She needs her ViVag.");
         candy.setDesc("Unlike 50 cent, your mom doesn’t take you to the candy shop. She wants you to buy some game fuel in the shape of doritos and mountain dew. However, this probably will not amount to 50 cent.");
         register.setDesc("You have reached the end of the line. This is what you have been training for. Let’s see if you have enough money for it all");
-        
+
     }
 
     public Room getRoom(int x, int y)

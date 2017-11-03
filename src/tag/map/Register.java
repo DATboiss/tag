@@ -24,11 +24,13 @@ public class Register
                     System.out.println("The cashierlady scans in the " + i.getName() + " and fortunately, you have enough money for it");
                     player.alterPointsum(i.getPrice());
                     player.alterMoney(-i.getPrice());
+                    System.out.println("You now have: " + player.getMoney());
                 } else
                 {
                     System.out.println("The cashierlady is about to scan in the " + i.getName() + " but you realize that you dont have enought money for it. "
                             + "You tell the cashierlady, that you can't afford the item. She seems anoyed, and your anxiety is raised by 10");
                     player.alterAnxiety(10);
+                    System.out.println("Your anxiety level is: " + player.getAnxiety());
                 }
             }
         }

@@ -22,6 +22,7 @@ import textio.TextIO;
  */
 public class Enemy extends Creature
 {
+
     private Random rnd = new Random();
     private boolean hasMet = false;
 
@@ -31,13 +32,13 @@ public class Enemy extends Creature
         this.curRoom = gameMap.getRoom(0, 4);
         this.name = name;
     }
-    
+
     public void initEnemy(int e)
     {
-        Consumable recyclingBottle = new Consumable("Recycling bottle", "You can get money for recycling this", 10, 0);
+        Consumable recyclingBottle = new Consumable("Recycling bottle", "You can get money for recycling this", 0, 10);
         for (int i = 0; i < e; i++)
         {
-           inventory.add(recyclingBottle);
+            inventory.add(recyclingBottle);
         }
     }
 
@@ -99,7 +100,7 @@ public class Enemy extends Creature
                     System.out.println("Something went wrong");
             }
         }
-        
+
     }
 
     public void interaction(Player player)
@@ -136,7 +137,6 @@ public class Enemy extends Creature
                     {
                         text.put("Oh no, not the katana! "
                                 + "I'll show you my bobs and vegana");
-                        player.alterAnxiety(-25);
                     } else
                     {
                         text.put("Shut up weirdo");
@@ -181,7 +181,6 @@ public class Enemy extends Creature
                 {
                     text.put("My man!");
                     player.alterMoney(-7);
-                    player.alterAnxiety(-50);
                     hasMet = true;
                     dropLoot();
                     break;
@@ -193,8 +192,6 @@ public class Enemy extends Creature
                     dropLoot();
                     dropLoot();
                     dropLoot();
-                    
-                    
 
             }
         }
@@ -204,7 +201,7 @@ public class Enemy extends Creature
     public void dropLoot()
     {
         int count = 0;
-        for (Item i: inventory)
+        for (Item i : inventory)
         {
             curRoom.addItemToRoom(i);
             count++;

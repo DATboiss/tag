@@ -15,6 +15,7 @@ import tag.map.Scenario;
  */
 public class Room
 {
+
     private String name;
     private String desc;
     private Scenario scen;
@@ -35,7 +36,7 @@ public class Room
         this.x = x;
         this.y = y;
     }
-    
+
     public int getX()
     {
         return x;
@@ -50,15 +51,15 @@ public class Room
     {
         this.desc = desc;
     }
-    
-    
+
     public void addItemToRoom(Item item)
     {
         roomItems.add(item);
     }
+
     public void printRoomItems()
     {
-        for (Item item: roomItems)
+        for (Item item : roomItems)
         {
             System.out.println(item.getName());
         }
@@ -66,7 +67,8 @@ public class Room
 
     /**
      * Checks if the player can access the a direction
-     * @return 
+     *
+     * @return
      */
     public boolean isNorth()
     {
@@ -93,22 +95,20 @@ public class Room
         return roomItems;
     }
 
-
     public void removeRoomItem(int n)
     {
         roomItems.remove(n);
     }
+
     public Item getRoomItem(int n)
     {
         return roomItems.get(n);
     }
-    
+
     @Override
     public String toString()
     {
         return name;
     }
 
-
-    
 }

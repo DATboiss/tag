@@ -13,13 +13,13 @@ import java.util.ArrayList;
  */
 public class ShoppingList
 {
+
     private ArrayList<Objective> objectiveList = new ArrayList();
 
     public ShoppingList()
     {
     }
-    
-    
+
     public void initShoppingList()
     {
         Objective eggPlant = new Objective("Egg Plant", "Long and hard", 8);
@@ -49,19 +49,19 @@ public class ShoppingList
 
     public void printShoppingList()
     {
-        for (Objective o: objectiveList) 
+        for (Objective o : objectiveList)
         {
             System.out.println(o.getName());
         }
     }
-    
+
     public String shoppingListToString()
     {
         String str = "";
-        for (Objective o: objectiveList) 
+        for (Objective o : objectiveList)
         {
             str += o.getName() + "\n";
-        } 
-        return str; 
+        }
+        return str;
     }
 }

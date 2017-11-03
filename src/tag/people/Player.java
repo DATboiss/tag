@@ -24,17 +24,15 @@ import textio.TextIO;
 public class Player extends Creature
 {
 
-    
     private int anxiety;
     private int money;
     private int pointSum;
-    
 
     public Player(Map gameMap, Room curRoom)
     {
         super(gameMap, curRoom);
         anxiety = 0;
-        money = 100; //change later
+        money = 250; //change later
     }
 
     public int getPointSum()
@@ -68,17 +66,17 @@ public class Player extends Creature
         this.name = name;
     }
 
-   public void addItemToInventory(int i) {
-        
+    public void addItemToInventory(int i)
+    {
+
         if (curRoom.getRoomItem(i).getName().equalsIgnoreCase("Snickers bar"))
         {
-            Consumable cons = (Consumable)curRoom.getRoomItem(i);
-            System.out.println("You couldn't help yourself. You ate the snickers immediately and your anxiety dropped by " + cons.getValue());   
+            Consumable cons = (Consumable) curRoom.getRoomItem(i);
+            System.out.println("You couldn't help yourself. You ate the snickers immediately and your anxiety dropped by " + cons.getValue());
             anxiety -= cons.getValue();
-        }
-        else
+        } else
         {
-        inventory.add(curRoom.getRoomItem(i));
+            inventory.add(curRoom.getRoomItem(i));
         }
         curRoom.removeRoomItem(i);
     }
@@ -110,11 +108,10 @@ public class Player extends Creature
                     break;
                 }
             }
-           
+
         }
 
     }
-    
 
     public void printInventory()
     {
@@ -138,7 +135,7 @@ public class Player extends Creature
                 sum += ((Objective) i).getPoints();
             }
         }
-        sum *= 100-anxiety;
+        sum *= 100 - anxiety;
 
         return sum;
     }
@@ -257,15 +254,12 @@ public class Player extends Creature
     {
         anxiety += i;
     }
-    
+
     public void alterMoney(int i)
     {
-        anxiety += i;
+        money += i;
     }
-     
-    
-    
-    
+
     @Override
     public void takeTurn() //
     {

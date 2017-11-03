@@ -26,8 +26,7 @@ public class Game
         player.initPlayer(player);
         Machine recycle = new Machine();
         HighscoreManager hm = new HighscoreManager();
-
-        System.out.print(hm.getHighscoreString());
+        
         while (player.getAnxiety() < 100 && player.getCurRoom() != gameMap.getRoom(0, 4))
         {
 
@@ -35,10 +34,12 @@ public class Game
             {
                 enemy.interaction(player);
             }
+            if (player.getAnxiety() >= 100) break;
             if (player.getCurRoom().equals(gameMap.getRoom(0, 0)))
             {
                 recycle.recycleBottles(player);
             }
+            if (player.getAnxiety() >= 100) break;
 
             System.out.println("             ");
             player.getCurRoom().printRoomItems();

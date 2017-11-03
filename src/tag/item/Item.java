@@ -11,6 +11,7 @@ package tag.item;
  */
 public abstract class Item
 {
+
     protected String name, description;
     protected int price;
 
@@ -37,7 +38,4 @@ public abstract class Item
         return "You picked up:\n" + name + "\n" + description + "\n" + price + ",-";
     }
 
-  
-    
-    
 }

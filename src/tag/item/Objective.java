@@ -13,6 +13,7 @@ import tag.item.Item;
  */
 public class Objective extends Item
 {
+
     private int points;
 
     public Objective(String name, String description, int price)
@@ -25,6 +26,5 @@ public class Objective extends Item
     {
         return points;
     }
-    
-    
+
 }
