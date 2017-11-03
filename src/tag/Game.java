@@ -4,6 +4,7 @@ import bottleRecycler.Machine;
 import highscore.HighscoreManager;
 import java.io.IOException;
 import tag.map.Map;
+import tag.map.Register;
 import tag.people.Enemy;
 import tag.people.Player;
 
@@ -52,13 +53,24 @@ public class Game
         }
 
         if (player.getAnxiety() >= 100)
+            System.out.println("Sorry! Your social anxiety is too much for you, and you abandon your shoppingcart and rush home to your mommy!");
+        else
         {
-            int score = player.calcScore();
-            hm.addScore(player.getName(), score);
-            System.out.println("You won the game, your score is: " + score);
+            Register register = new Register();
+            register.payForItems(player, player.getInventory());
         }
+        if (player.getAnxiety() >= 100)
+        {
+            System.out.println("Sorry! Your social anxiety is too much for you, and you abandon your shoppingcart and rush home to your mommy!");
+        } else
+        {
+            System.out.println("Congratulation. You reached the register and bought some items for your mom. \n You have won the game!!!");
 
-        System.out.println(hm.getHighscoreString());
+            player.calcScore();
+
+            hm.addScore(player.getName(), player.getPointSum());
+        }
+        System.out.print(hm.getHighscoreString());
     }
 
 }

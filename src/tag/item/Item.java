@@ -26,11 +26,18 @@ public abstract class Item
         return name;
     }
 
+    public int getPrice()
+    {
+        return price;
+    }
+
     @Override
     public String toString()
     {
         return "You picked up:\n" + name + "\n" + description + "\n" + price + ",-";
     }
+
+  
     
     
 }

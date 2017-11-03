@@ -49,7 +49,6 @@ public class ShoppingList
 
     public void printShoppingList()
     {
-        System.out.println("Momma has made you a shopping list. To get a highscore, you must collect all following items.");
         for (Objective o: objectiveList) 
         {
             System.out.println(o.getName());
