@@ -51,8 +51,9 @@ public class Machine
                         Item cons = iterator.next();
                         if("Recycling bottle".equals(cons.getName()))
                         {
-//                        player.alterMoney(cons.);
-//                        System.out.println("You recycle the bottle and gain " + cons.getValue() + " kr.");
+                        Consumable money = (Consumable) cons;
+                        player.alterMoney(money.getValue());
+                        System.out.println("You recycle the bottle and gain " + money.getValue() + " kr.");
                         iterator.remove();
                         hasBottle = true;
                         }
