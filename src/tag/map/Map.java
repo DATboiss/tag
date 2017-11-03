@@ -130,7 +130,7 @@ public class Map
         deli.setDesc("Mom’s having friends over tomorrow, and wanted tapas. I have no idea what that means, but there are various tapas kit. That’ll have to do.");
         alcohol.setDesc("Mom’s a raging alcoholic and needs her daily fix of a bottle of Grand Marnier.");
         bottle.setDesc("Mom’s been having too much fun with the neighbours, and her private parts has gone sour. She needs her ViVag");
-        personalHygeine.setDesc("");
+        personalHygeine.setDesc("Mom’s been having too much fun with the neighbours, and her private parts has gone sour. She needs her ViVag.");
         candy.setDesc("Unlike 50 cent, your mom doesn’t take you to the candy shop. She wants you to buy some game fuel in the shape of doritos and mountain dew. However, this probably will not amount to 50 cent.");
         register.setDesc("You have reached the end of the line. This is what you have been training for. Let’s see if you have enough money for it all");
         
