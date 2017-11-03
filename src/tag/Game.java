@@ -26,13 +26,12 @@ public class Game
         System.out.print(hm.getHighscoreString());
         while (player.getAnxiety() < 100 && player.getCurRoom() != gameMap.getRoom(0, 4))
         {
-            
-            
+
             if (player.getCurRoom().equals(enemy.getCurRoom()))
             {
                 enemy.interaction(player);
             }
-            
+
             System.out.println("             ");
             player.getCurRoom().printRoomItems();
             System.out.println("Security guard Tyrone is currently in: " + enemy.getCurRoom());
@@ -44,16 +43,14 @@ public class Game
             enemy.takeTurn();
 
         }
-        if (player.getCurRoom().equals(enemy.getCurRoom()))
-        {
-            System.out.println("Oh no! you got caught by Tyrone");
-        } else
+
+        if (player.getAnxiety() >= 100)
         {
             int score = player.calcScore();
             hm.addScore(player.getName(), score);
             System.out.println("You won the game, your score is: " + score);
-
         }
+
         System.out.println(hm.getHighscoreString());
     }
 
