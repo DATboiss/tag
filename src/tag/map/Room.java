@@ -35,6 +35,22 @@ public class Room
         this.x = x;
         this.y = y;
     }
+    public int getX()
+    {
+        return x;
+    }
+
+    public int getY()
+    {
+        return y;
+    }
+
+    public void setDesc(String desc)
+    {
+        this.desc = desc;
+    }
+    
+    
     public void addItemToRoom(Item item)
     {
         roomItems.add(item);
@@ -45,15 +61,6 @@ public class Room
         {
             System.out.println(item.getName());
         }
-    }
-    public int getX()
-    {
-        return x;
-    }
-
-    public int getY()
-    {
-        return y;
     }
 
     /**

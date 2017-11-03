@@ -7,6 +7,7 @@ package tag.map;
 
 import tag.item.Consumable;
 import tag.item.Objective;
+import tag.item.ShoppingList;
 
 /**
  *
@@ -50,6 +51,7 @@ public class Map
     // creates and allocates all the rooms to a coordinate in the map
     public static void initMap(Map miniMap)
     {
+        ShoppingList shoppinglist = new ShoppingList();
         Objective eggPlant = new Objective("Egg Plant", "Long and hard", 8);
         Objective toast = new Objective("Toast", "Soft like a babies butt", 20);
         Objective fishSticks = new Objective("Fish sticks", "Do you like to put them in your mouth?", 20);
@@ -66,21 +68,21 @@ public class Map
         
         
         //boolean north, east, south, west   
-        Room sp = new Room("Start", "Starting Point", 1, 2, 4, true, false, false, false);
-        Room freshProd = new Room("Fresh produce", "desc", 2, 2, 3, true, false, false, true);
-        Room bread = new Room("Bread", "desc", 3, 1, 3, true, true, false, false);
-        Room frozen = new Room("Frozen", "desc", 4, 1, 2, false, true, true, false);
-        Room coldCuts = new Room("Cold cuts", "desc", 5, 2, 2, true, false, true, true);
-        Room cheese = new Room("Cheese", "desc", 6, 2, 1, true, false, true, true);
-        Room dairy = new Room("Dairy", "desc", 7, 2, 0, false, false, true, true);
-        Room butcher = new Room("Butcher", "desc", 8, 1, 0, false, true, true, false);
-        Room deli = new Room("Deli", "desc", 9, 1, 1, true, true, false, true);
-        Room alcohol = new Room("Alchohol", "desc", 10, 0, 1, true, true, true, false);
-        Room bottle = new Room("Bottle recycler", "desc", 11, 0, 0, false, false, true, false);
-        Room personalHygeine = new Room("Personal Hygeine", "desc", 12, 0, 2, true, false, true, false);
-        Room candy = new Room("Candy", "desc", 13, 0, 3, true, false, true, false);
-        Room register = new Room("Register", "desc", 14, 0, 4, true, false, false, false);
-        Room goAwayNull = new Room("    ", "desc", 14, 1, 4, false, false, false, false);
+        Room sp = new Room("Start", "", 1, 2, 4, true, false, false, false);
+        Room freshProd = new Room("Fresh produce", "", 2, 2, 3, true, false, false, true);
+        Room bread = new Room("Bread", "", 3, 1, 3, true, true, false, false);
+        Room frozen = new Room("Frozen", "", 4, 1, 2, false, true, true, false);
+        Room coldCuts = new Room("Cold cuts", "", 5, 2, 2, true, false, true, true);
+        Room cheese = new Room("Cheese", "", 6, 2, 1, true, false, true, true);
+        Room dairy = new Room("Dairy", "", 7, 2, 0, false, false, true, true);
+        Room butcher = new Room("Butcher", "", 8, 1, 0, false, true, true, false);
+        Room deli = new Room("Deli", "", 9, 1, 1, true, true, false, true);
+        Room alcohol = new Room("Alchohol", "", 10, 0, 1, true, true, true, false);
+        Room bottle = new Room("Bottle recycler", "", 11, 0, 0, false, false, true, false);
+        Room personalHygeine = new Room("Personal Hygeine", "", 12, 0, 2, true, false, true, false);
+        Room candy = new Room("Candy", "", 13, 0, 3, true, false, true, false);
+        Room register = new Room("Register", "", 14, 0, 4, true, false, false, false);
+        Room goAwayNull = new Room("    ", "", 14, 1, 4, false, false, false, false);
         freshProd.addItemToRoom(eggPlant);
         freshProd.addItemToRoom(snickers);
         bread.addItemToRoom(toast);
@@ -110,6 +112,28 @@ public class Map
         miniMap.insert(candy, 0, 3);
         miniMap.insert(register, 0, 4);
         miniMap.insert(goAwayNull, 1, 4);
+        sp.setDesc("Greetings nerd! Your mom has asked you to go grocery shopping for her. "
+                + "She’s given you a shopping list with the following items: "
+                + shoppinglist.shoppingListToString()
+                + "She’s given you enough money to buy it all. "
+                + "However, there will be temptations that you can pick up, but then won’t have enough money for everything on the grocery list. "
+                + "Since you’re socially anxious, try to avoid all forms of social contact!");
+        
+        shoppinglist.printShoppingList();
+        freshProd.setDesc("You enter the supermarket, and the cold and humid surroundings of the fresh produce section makes you shiver. You look at mom’s shopping list, and notice she needs an eggplant.");
+        bread.setDesc("The bread section is a small double sided aisle, with little room. You look for the soft, most baby-butt like toast you can find.");
+        frozen.setDesc("Mom also wanted fishsticks. Do I like fishsticks? hell yeah. The coolers are filled with various fish and pizzas. You resist the urge to ...fish up a frozen pizza and go straight for the fishsticks.");
+        coldCuts.setDesc("The smell of flesh surrounds your nose, and as you inhale, you are reminded that mom wanted ham. Ham and fishstick sandwich for dinner? I hope not.");
+        cheese.setDesc("The cheese section, however, is the worst thing you have done to your nose, since you played 37 hours of WoW on the Wrath of the Lich King expansion. Luckily, she only needed cheddar.");
+        dairy.setDesc("I know my mom, and I know she has all types of imaginary allergies. And she needs milk. So naturally, you look for the Lactose, gluten free extra vegan natural soy milk.");
+        butcher.setDesc("Mom need’s sausage - so naturally you ask the hairy-woodcutter butcher man for a phat piece of sausage. He delivers.");
+        deli.setDesc("Mom’s having friends over tomorrow, and wanted tapas. I have no idea what that means, but there are various tapas kit. That’ll have to do.");
+        alcohol.setDesc("Mom’s a raging alcoholic and needs her daily fix of a bottle of Grand Marnier.");
+        bottle.setDesc("Mom’s been having too much fun with the neighbours, and her private parts has gone sour. She needs her ViVag");
+        personalHygeine.setDesc("");
+        candy.setDesc("Unlike 50 cent, your mom doesn’t take you to the candy shop. She wants you to buy some game fuel in the shape of doritos and mountain dew. However, this probably will not amount to 50 cent.");
+        register.setDesc("You have reached the end of the line. This is what you have been training for. Let’s see if you have enough money for it all");
+        
     }
 
     public Room getRoom(int x, int y)
