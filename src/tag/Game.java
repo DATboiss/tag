@@ -27,6 +27,8 @@ public class Game
         Machine recycle = new Machine();
         HighscoreManager hm = new HighscoreManager();
         
+        System.out.println(player.getCurRoom().getDesc()); // Prints out The game introduction from the startroom description.
+        
         while (player.getAnxiety() < 100 && player.getCurRoom() != gameMap.getRoom(0, 4)) // Game runs until you lose the game by having 100 anxiety, or until you rach the last room:
         {
 
