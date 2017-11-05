@@ -11,7 +11,7 @@ import java.util.Comparator;
  *
  * @author adams
  */
-public class ScoreComparator implements Comparator<Score> 
+public class ScoreComparator implements Comparator<Score>  // Tells how to compare the different highscores
 {
     public int compare(Score score1, Score score2){
         int sc1 = score1.getScore();

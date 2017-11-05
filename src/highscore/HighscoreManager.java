@@ -23,8 +23,10 @@ public class HighscoreManager
 
     private ArrayList<Score> scores;
 
+    // The name of the file where the highscores will be saved
     private static final String HIGHSCORE_FILE = "scores.dat";
 
+    //Initialising an in and outputStream for working with the file
     ObjectOutputStream outputStream = null;
     ObjectInputStream inputStream = null;
 
@@ -54,6 +56,8 @@ public class HighscoreManager
     }
 
     public void loadScoreFile() throws IOException
+    //This function will load the arraylist that is in the high-score file and will put it in the "scores"-arraylist.
+    //The try-catch structure will avoid that your program crashes when there is something wrong while loading the file (like when the file is corrupted or doesn't exist).
     {
         try
         {
@@ -84,7 +88,7 @@ public class HighscoreManager
         }
     }
 
-    public void updateScoreFile()
+    public void updateScoreFile() //it will be writing the "score"-arraylist to the file
     {
         try
         {
@@ -112,7 +116,7 @@ public class HighscoreManager
         }
     }
 
-    public String getHighscoreString() throws IOException
+    public String getHighscoreString() throws IOException //This function will only have the top 10 players but you can adjust the variable "max" to change that.
     {
         String highscoreString = "";
         int max = 10;
