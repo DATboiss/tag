@@ -11,6 +11,7 @@ import tag.item.Item;
  *
  * @author adams
  */
+
 public class Objective extends Item
 {
 
