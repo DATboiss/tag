@@ -27,15 +27,15 @@ public class Game
         Machine recycle = new Machine();
         HighscoreManager hm = new HighscoreManager();
         
-        while (player.getAnxiety() < 100 && player.getCurRoom() != gameMap.getRoom(0, 4))
+        while (player.getAnxiety() < 100 && player.getCurRoom() != gameMap.getRoom(0, 4)) // Game runs until you lose the game by having 100 anxiety, or until you rach the last room:
         {
 
-            if (player.getCurRoom().equals(enemy.getCurRoom()))
+            if (player.getCurRoom().equals(enemy.getCurRoom())) //Combat enemy, if you are in the same room.
             {
                 enemy.interaction(player);
             }
             if (player.getAnxiety() >= 100) break;
-            if (player.getCurRoom().equals(gameMap.getRoom(0, 0)))
+            if (player.getCurRoom().equals(gameMap.getRoom(0, 0))) //Runs the recycle machine function, if you are in the specific room.
             {
                 recycle.recycleBottles(player);
             }
@@ -46,24 +46,24 @@ public class Game
             System.out.println("Security guard Tyrone is currently in: " + enemy.getCurRoom());
             System.out.println("You are currently in: " + player.getCurRoom());
             System.out.println("====================================");
-            player.pickUpItem();
+            player.pickUpItem(); // pickup roomitems
             player.printInventory();
-            player.nextRoom(player.getCurRoom());
-            enemy.takeTurn();
+            player.nextRoom(player.getCurRoom()); //Player moves
+            enemy.takeTurn(); // enemy moves
 
         }
 
-        if (player.getAnxiety() >= 100)
+        if (player.getAnxiety() >= 100) // Player lost the game
             System.out.println("Sorry! Your social anxiety is too much for you, and you abandon your shoppingcart and rush home to your mommy!");
-        else
+        else // Player is now in the last room.
         {
             Register register = new Register();
             register.payForItems(player, player.getInventory());
         }
-        if (player.getAnxiety() >= 100)
+        if (player.getAnxiety() >= 100) //Player lost the game in the last room
         {
             System.out.println("Sorry! Your social anxiety is too much for you, and you abandon your shoppingcart and rush home to your mommy!");
-        } else
+        } else //Player won the game and gets a highscore.
         {
             System.out.println("Congratulation. You reached the register and bought some items for your mom. \n You have won the game!!!");
 
