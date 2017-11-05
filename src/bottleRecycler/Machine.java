@@ -60,7 +60,6 @@ public class Machine
                         iterator.remove();
                         hasBottle = true;
                     }
-
                 }
 
                 if (!hasBottle)

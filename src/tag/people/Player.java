@@ -194,7 +194,7 @@ public class Player extends Creature
         }
         List choices = Arrays.asList(strings);
         int answer = text.select("Where do you wanna go", choices, "===================");
-        System.out.println("\n" + "You choose to head " + strings[answer]);
+        System.out.println("You choose to head " + strings[answer]);
 
         switch (answer)
         {
