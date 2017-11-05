@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package tag.people;
 
 import java.util.ArrayList;
@@ -17,10 +13,9 @@ import tag.map.Room;
 import textio.SysTextIO;
 import textio.TextIO;
 
-/**
- *
- * @author emilv
- */
+
+
+//extends the Creature class (the ability to move around the map)
 public class Player extends Creature
 {
 
@@ -28,11 +23,14 @@ public class Player extends Creature
     private int money;
     private int pointSum;
 
+    
+    
+    // sets the anxiety (health) to 0 so it can easily be modified
     public Player(Map gameMap, Room curRoom)
     {
         super(gameMap, curRoom);
         anxiety = 0;
-        money = 250; //change later
+        money = 250;
     }
 
     public int getPointSum()
@@ -45,7 +43,7 @@ public class Player extends Creature
         return name;
     }
 
-    // getAnxiety represents the players health. It starts as 0 and lose if you reach certain max
+    // getAnxiety represents the players health. It will be modified troughout the game, and reaching 100 means death.
     public int getAnxiety()
     {
         return anxiety;
@@ -66,9 +64,12 @@ public class Player extends Creature
         this.name = name;
     }
 
+//Adds item to the inventory without giving the player any input options.
     public void addItemToInventory(int i)
     {
-
+        
+        
+//the snickers will be consumed as soon as you pick it up.
         if (curRoom.getRoomItem(i).getName().equalsIgnoreCase("Snickers bar"))
         {
             Consumable cons = (Consumable) curRoom.getRoomItem(i);
@@ -80,7 +81,9 @@ public class Player extends Creature
         }
         curRoom.removeRoomItem(i);
     }
-
+    
+    
+//method for picking up the given items in each room, using the TextIO template.
     public void pickUpItem()
     {
 
@@ -125,6 +128,7 @@ public class Player extends Creature
         System.out.println(" ");
     }
 
+  //calculates the highscore. each item in the inventory during the end will add to the highscore sum, which then is multiplied by 100-anxiety.
     public int calcScore()
     {
         int sum = 0;
@@ -140,7 +144,7 @@ public class Player extends Creature
         return sum;
     }
 
-    // Asks the player for name
+// the player's settings
     public void initPlayer(Player player)
     {
 
@@ -151,6 +155,7 @@ public class Player extends Creature
         System.out.println("Greetings, " + player);
     }
 
+//Checks the current room for available paths to other rooms. The arraylist choices is used in the switch to validate your choice.
     public void nextRoom(Room curRoom)
     {
         TextIO text = new TextIO(new SysTextIO());
@@ -263,7 +268,6 @@ public class Player extends Creature
     @Override
     public void takeTurn() //
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void alterPointsum(int i)

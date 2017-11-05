@@ -16,10 +16,7 @@ import tag.map.Room;
 import textio.SysTextIO;
 import textio.TextIO;
 
-/**
- *
- * @author adams
- */
+//extends the Creature class (the ability to move around the map)
 public class Enemy extends Creature
 {
 
@@ -33,6 +30,7 @@ public class Enemy extends Creature
         this.name = name;
     }
 
+//gives tyrone the bottles that will be dropped upon "defeat".
     public void initEnemy(int e)
     {
         Consumable recyclingBottle = new Consumable("Recycling bottle", "You can get money for recycling this", 0, 10);
@@ -42,6 +40,7 @@ public class Enemy extends Creature
         }
     }
 
+// the enemies turn method. using a random(rnd) to make the walking pattern for Tyrone non-predictable.
     @Override
     public void takeTurn()
     {
@@ -103,6 +102,8 @@ public class Enemy extends Creature
 
     }
 
+// the (non)combat method interaction will be played when the players curRoom == enemies curRoom.
+// the hasMet method prompts a string that will be printed if you have "beat" Tyrone and meet him again.
     public void interaction(Player player)
     {
         TextIO text = new TextIO(new SysTextIO());
@@ -127,7 +128,9 @@ public class Enemy extends Creature
 
             List choices = Arrays.asList(strings);
             int answer = text.select("How will you answer Tyrone?", choices, "");
-
+            
+            
+//this swicth contains Tyrones answers to your interaction, using a random for a non predictable playtrough, and adds to the players anxiety using the alterAnxiety method.
             switch (answer)
             {
                 case 0:
@@ -198,6 +201,7 @@ public class Enemy extends Creature
 
     }
 
+// the loot that Tyrone will "drop" for you, if you beat him. Bottles for the recycler
     public void dropLoot()
     {
         int count = 0;

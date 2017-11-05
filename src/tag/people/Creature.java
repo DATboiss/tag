@@ -49,7 +49,7 @@ public abstract class Creature
 
 
        
-        
+//the directions that the monster (Tyrone) can go - north, east, south and west.
             public Room goNorth(Room curRoom)
     {
         return gameMap.getRoom(curRoom.getX(), curRoom.getY() - 1);
