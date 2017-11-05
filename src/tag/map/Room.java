@@ -7,7 +7,7 @@ package tag.map;
 
 import java.util.ArrayList;
 import tag.item.Item;
-import tag.map.Scenario;
+
 
 /**
  *
@@ -18,7 +18,6 @@ public class Room
 
     private String name;
     private String desc;
-    private Scenario scen;
     private int id;
     private int x, y;
     private boolean north, east, south, west;

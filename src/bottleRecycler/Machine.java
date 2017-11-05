@@ -26,6 +26,8 @@ public class Machine
 
     }
 
+    // This method is used for giving the player money if the has picked up any consumeable bottle objects.
+    // If the player has no bottles or he chooses to do nothing he will gain a bit of anxiety.
     public void recycleBottles(Player player)
     {
         TextIO text = new TextIO(new SysTextIO());
@@ -43,6 +45,7 @@ public class Machine
             case 0:
             {
                 boolean hasBottle = false;
+                // We use the iterator to check the list for Items while also removing items, if they match the item we are looking for.
 
                 for (Iterator<Item> iterator = player.getInventory().iterator(); iterator.hasNext();)
                 {
@@ -50,6 +53,7 @@ public class Machine
                     Item cons = iterator.next();
                     if ("Recycling bottle".equals(cons.getName()))
                     {
+                        // We cast the Item cons value to Consumable, to get it's value, as items do not have a value, but consumables do.
                         Consumable money = (Consumable) cons;
                         player.alterMoney(money.getValue());
                         System.out.println("You recycle the bottle and gain " + money.getValue() + " kr.");

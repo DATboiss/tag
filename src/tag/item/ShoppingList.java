@@ -19,7 +19,8 @@ public class ShoppingList
     public ShoppingList()
     {
     }
-
+    // This list is used as an objective tracker. The items in this list will give points to the player
+    // if they are also in their inventory at the end of the game.
     public void initShoppingList()
     {
         Objective eggPlant = new Objective("Egg Plant", "Long and hard", 8);
@@ -46,7 +47,7 @@ public class ShoppingList
         objectiveList.add(intimateSoap);
         objectiveList.add(doritos);
     }
-
+    
     public void printShoppingList()
     {
         for (Objective o : objectiveList)

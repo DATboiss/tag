@@ -11,6 +11,8 @@ import tag.item.Item;
  *
  * @author adams
  */
+    // This item was planned to be used for items that could boost or decrease the players stats
+    
 public class Consumable extends Item
 {
     private int value;
