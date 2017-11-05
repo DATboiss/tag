@@ -51,6 +51,13 @@ public class Room
         this.desc = desc;
     }
 
+    public String getDesc()
+    {
+        return desc;
+    }
+
+    
+    
     public void addItemToRoom(Item item)
     {
         roomItems.add(item);
