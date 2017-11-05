@@ -112,6 +112,7 @@ public class Enemy extends Creature
             text.put("My man!");
         } else
         {
+            System.out.println("\n" + "\033[0;31m" +"Oh no! The security guard Tyrone has spotted you!" + "\u001B[0m");
             text.put("Hey, you there! Stop! I saw you on the CCTV eating that Snicker. "
                     + "Couldn't resist eating that chocolate bar fatty? "
                     + "If you don't pay me I'll give you another black chocolate bar to eat!");
@@ -210,6 +211,6 @@ public class Enemy extends Creature
             curRoom.addItemToRoom(i);
             count++;
         }
-        System.out.println("Tyrone dropped " + count + " bottles");
+        System.out.println("\nTyrone dropped " + count + " bottles");
     }
 }

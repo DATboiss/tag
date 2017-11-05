@@ -3,6 +3,7 @@ package tag;
 import bottleRecycler.Machine;
 import highscore.HighscoreManager;
 import java.io.IOException;
+import tag.item.ShoppingList;
 import tag.map.Map;
 import tag.map.Register;
 import tag.people.Enemy;
@@ -25,6 +26,7 @@ public class Game
         enemy.initEnemy(3);
         player.initPlayer(player);
         Machine recycle = new Machine();
+        
         HighscoreManager hm = new HighscoreManager();
         
         System.out.println(player.getCurRoom().getDesc()); // Prints out The game introduction from the startroom description.
@@ -44,13 +46,20 @@ public class Game
             if (player.getAnxiety() >= 100) break;
 
             System.out.println("             ");
+            /*
+            Test method to see if the room contains any items
             player.getCurRoom().printRoomItems();
-            System.out.println("Security guard Tyrone is currently in: " + enemy.getCurRoom());
+            */
+            /* System.out.println("Security guard Tyrone is currently in: " + enemy.getCurRoom());
+            This method is a test to see where the enemy is currently at.
+            */
+            
             System.out.println("You are currently in: " + player.getCurRoom());
             System.out.println("====================================");
             player.pickUpItem(); // pickup roomitems
-            player.printInventory();
+            if (player.getInventory().size() >= 1) player.printInventory();
             player.nextRoom(player.getCurRoom()); //Player moves
+            System.out.println(player.getCurRoom().getDesc());
             enemy.takeTurn(); // enemy moves
 
         }

@@ -52,6 +52,7 @@ public class Map
     public static void initMap(Map miniMap)
     {
         ShoppingList shoppinglist = new ShoppingList();
+        shoppinglist.initShoppingList();
         Objective eggPlant = new Objective("Egg Plant", "Long and hard", 8);
         Objective toast = new Objective("Toast", "Soft like a babies butt", 20);
         Objective fishSticks = new Objective("Fish sticks", "Do you like to put them in your mouth?", 20);
@@ -63,7 +64,7 @@ public class Map
         Objective booze = new Objective("Grand Marnier", "Triple Sec Orrange liqour", 75);
         Objective intimateSoap = new Objective("Vivag", "Mommy smells a bit fishy", 40);
         Objective doritos = new Objective("XXL Doritos", "XXL, when you've got to compensate for something", 30);
-        Consumable snickers = new Consumable("Snickers bar", "You're not your when you're hungry", 6, 0);
+        Consumable snickers = new Consumable("Snickers bar", "You're not your when you're hungry", 6, -20);
 
         //boolean north, east, south, west   
         Room sp = new Room("Start", "", 1, 2, 4, true, false, false, false);
@@ -109,13 +110,15 @@ public class Map
         miniMap.insert(candy, 0, 3);
         miniMap.insert(register, 0, 4);
         miniMap.insert(goAwayNull, 1, 4);
-        sp.setDesc("Greetings nerd! Your mom has asked you to go grocery shopping for her. "
-                + "She’s given you a shopping list with the following items: "
-                + shoppinglist.shoppingListToString()
+        sp.setDesc("Your mom has asked you to go grocery shopping for her. "
+                + "She’s given you a shopping list with the following items: \n"
+                + "===================\n" 
+                + shoppinglist.shoppingListToString() 
+                + "===================\n" 
                 + "She’s given 250 kr. to buy it all. "
                 + "Since you’re socially anxious, try to avoid all forms of social contact!");
 
-        shoppinglist.printShoppingList();
+        
         freshProd.setDesc("You enter the supermarket, and the cold and humid surroundings of the fresh produce section makes you shiver. You look at mom’s shopping list, and notice she needs an eggplant.");
         bread.setDesc("The bread section is a small double sided aisle, with little room. You look for the soft, most baby-butt like toast you can find.");
         frozen.setDesc("Mom also wanted fishsticks. Do I like fishsticks? hell yeah. The coolers are filled with various fish and pizzas. You resist the urge to ...fish up a frozen pizza and go straight for the fishsticks.");

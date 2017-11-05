@@ -100,7 +100,7 @@ public class Player extends Creature
                 strings[curRoom.getRoomItems().size()] = "To not pickup any items";
                 List choices = Arrays.asList(strings);
 
-                int answer = text.select("What do you want to pick up?", choices, "Select a valid option!");
+                int answer = text.select("The room contains the following items, what do you want to pick up?", choices, "Select a valid option!");
                 if (answer != curRoom.getRoomItems().size())
                 {
                     System.out.println(curRoom.getRoomItem(answer) + "\n");
@@ -195,7 +195,6 @@ public class Player extends Creature
         List choices = Arrays.asList(strings);
         int answer = text.select("Where do you wanna go", choices, "===================");
         System.out.println("You choose to head " + strings[answer]);
-        System.out.println(curRoom.getDesc());
         switch (answer)
         {
             case 0:
@@ -246,6 +245,7 @@ public class Player extends Creature
             default:
                 text.put("That is not a valid command");
         }
+        
 
     }
 
